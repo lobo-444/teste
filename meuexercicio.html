@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Meu Primeiro</title>
+<meta charset="UTF8"/>
+
+<script>
+
+function Multiplicar(){
+
+const n1 = document.getElementById("n1").value
+const n2 = document.getElementById("n2").value
+const resultado = document.getElementById ("resultado")
+
+
+
+const  Multiplicar = Number(n1) * Number(n2)
+
+resultado.innerHTML = "A multiplicação dos números é " + Multiplicar
+
+}
+
+
+
+
+
+
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+
+n1: <input type="text" id="n1"/><br>
+n2: <input type="text" id="n2"/><br>
+<input type="button" value="Multiplicar" onclick=" Multiplicar()">
+
+
+<h1 id="resultado">O resultado é</h1>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

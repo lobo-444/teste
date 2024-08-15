@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House of the Dragon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./CSS/reset.css">
+    <link rel="stylesheet" href="./CSS/estilo.css">
+    <script>
+/*
+	OBJETIVO - quando clicarmos no botão temos que mostrar a imagem de fundo correspondente
+	- passo 1 - dar um jeito de pegar o elemento HTML dos botões
+	- passo 2 - dar um jeito de identificar o clique do usuário no botão
+	- passo 3 - desmarcar o botão selecionado anterior
+	- passo 4 - marcar o botão clicado como se estivesse selecionado
+	- passo 5 - esconder a imagem anteriormente selecionada
+	- passo 6 - fazer aparecer a imagem correspondente ao botão clicado
+	- passo 7 - esconder a informação do dragão anteriormente selecionado
+	- passo 8 - mostrar a informação do dragão referente ao botão clicado
+*/
+
+//- passo 1 - dar um jeito de pegar o elemento HTML dos botões
+const botoesCarrossel = document.querySelectorAll(".botao");
+const imagens = document.querySelectorAll(".imagem");
+const informacoes = document.querySelectorAll(".informacoes");
+
+// - passo 2 - dar um jeito de identificar o clique do usuário no botão
+botoesCarrossel.forEach((botao, indice) => {
+  botao.addEventListener("click", () => {
+    // - passo 3 - desmarcar o botão selecionado anterior
+    desativarBotaoSelecionado();
+
+    // 	- passo 4 - marcar o botão clicado como se estivesse selecionado
+    marcarBotaoSelecionado(botao);
+
+    // - passo 5 - esconder a imagem anteriormente selecionada
+    esconderImagemAtiva();
+
+    // - passo 6 - fazer aparecer a imagem correspondente ao botão clicado
+    mostrarImagemDeFundo(indice);
+
+    // - passo 7 - esconder a informação do dragão anteriormente selecionado
+    esconderInformacoesAtivas();
+
+    // - passo 8 - mostrar a informação do dragão referente ao botão clicado
+    mostrarInformacoes(indice);
+  });
+});
+
+function marcarBotaoSelecionado(botao) {
+    botao.classList.add("selecionado");
+}
+
+function mostrarInformacoes(indice) {
+  informacoes[indice].classList.add("ativa");
+}
+
+function esconderInformacoesAtivas() {
+  const informacoesAtiva = document.querySelector(".informacoes.ativa");
+  informacoesAtiva.classList.remove("ativa");
+}
+
+function mostrarImagemDeFundo(indice) {
+  imagens[indice].classList.add("ativa");
+}
+
+function esconderImagemAtiva() {
+  const imagemAtiva = document.querySelector(".ativa");
+  imagemAtiva.classList.remove("ativa");
+}
+
+function desativarBotaoSelecionado() {
+  const botaoSelecionado = document.querySelector(".selecionado");
+  botaoSelecionado.classList.remove("selecionado");
+}
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+</head>
+
+
+
+
+<body>
+    <main>
+        <div class="carrosel">
+            <img class="imagem ativa" src="img/balerion.png" alt="Dragão Balerion">
+            <img class="imagem" src="img/syrax.png" alt=" Dragão syrax">
+            <img class="imagem" src="img/arrax.png" alt=" Dragão Arrax">
+            <img class="imagem" src="img/caraxes.png" alt=" Dragão Caraxes">
+            <img class="imagem" src="img/seasmoke.png" alt=" Dragão Seasmoke">
+            <img class="imagem" src="img/vermax.png" alt=" Dragão Vermax">
+            <img class="imagem" src="img/vhagar.png" alt=" Dragão Vhagar">
+
+
+        </div>
+
+        <div class="conteudo">
+
+            <div class="informacoes ativa">
+                <h1>Balerion</h1>
+                <p class="descricao">
+                    Balerion, chamado de Terror Negro, foi um dragão da Casa Targaryen. Ele foi montado pelo rei Aegon I
+                    Targaryen durante a Guerra da Conquista.
+                </p>
+            </div>
+            <div class="informacoes">
+                <h1>Syrax</h1>
+
+                <p class="descricao">
+                    Syrax foi uma dragão-fêmea. Ela foi montada exclusivamente por Rhaenyra Targaryen. Seu nome veio de
+                    uma deusa de
+                    Valíria
+                </p>
+            </div>
+            <div class="informacoes">
+                <h1>Arrax</h1>
+
+                <p class="descricao">
+                    Arrax foi um dragão montado pelo Príncipe Lucerys Velaryon durante a Dança dos Dragões.
+                </p>
+            </div>
+             <div class="informacoes">
+            <h1>Caraxes</h1>
+
+            <p class="descricao">
+                Caraxes, também chamado de Wyrm de Sangue e Verme Sangrento, foi o dragão montado pelo Príncipe Aemon
+                Targaryen durante o reinado do Rei Jaehaerys I Targaryen e, mais tarde, pelo Príncipe Daemon Targaryen.
+            </p>
+        </div>
+        <div class="informacoes">
+            <h1>Seasmoke</h1>
+
+            <p class="descricao">
+                Seasmoke era um dragão cinza-claro. Era grande o bastante para combate durante a dança, mas ainda um
+                jovem dragão, e mais ágil no ar do que seus irmãos mais velhos.
+            </p>
+        </div>
+
+        <div class="informacoes">
+            <h1>Vermax</h1>
+
+            <p class="descricao">
+                Vermax foi o dragão montado pelo príncipe Jacaerys Velaryon. Ele prosperava e crescia a cada ano. O
+                dragão ficou mal-humorado quando próximo de neve, gelo e frio.A cor de Vermax não é descrita nos livros.
+            </p>
+        </div>
+        <div class="informacoes">
+            <h1>Vhagar</h1>
+
+            <p class="descricao">
+                Vhagar foi uma dragão-fêmea montada por Visenya durante a Conquista, ao lado do Balerion de Aegon o
+                Conquistador e o Meraxes de sua irmã Rhaenys.
+            </p>
+        </div>
+
+
+        <div class="botoes-carrosel">
+        <button class="botao selecionado"></button>
+        <button class="botao"></button>
+        <button class="botao"></button>
+        <button class="botao"></button>
+        <button class="botao"></button>
+        <button class="botao"></button>
+        <button class="botao"></button>
+        </div>
+        </div>
+    </div>
+
+
+
+    </main>
+</body>
+
+</html>
